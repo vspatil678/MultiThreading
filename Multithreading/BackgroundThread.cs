@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace Multithreading
 {
-    public class CreatingThreadWithThreadClass
+    public class BackgroundThread
     {
         public static void ThreadMethod()
         {
@@ -17,13 +17,7 @@ namespace Multithreading
         {
             Thread t = new Thread(new ThreadStart(ThreadMethod));
             t.Start();
-
-            for (int i = 0; i < 4; i++)
-            {
-                Console.WriteLine("Main thread do some work");
-                Thread.Sleep(1000);
-            }
-            t.Join();
+            t.IsBackground = false;
         }
     }
 }
